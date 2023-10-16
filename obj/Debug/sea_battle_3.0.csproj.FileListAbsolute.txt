@@ -1,0 +1,7 @@
+C:\Users\motor\OneDrive\Рабочий стол\учёба\c#\sea_battle_3.0\bin\Debug\sea_battle_3.0.exe.config
+C:\Users\motor\OneDrive\Рабочий стол\учёба\c#\sea_battle_3.0\bin\Debug\sea_battle_3.0.exe
+C:\Users\motor\OneDrive\Рабочий стол\учёба\c#\sea_battle_3.0\bin\Debug\sea_battle_3.0.pdb
+C:\Users\motor\OneDrive\Рабочий стол\учёба\c#\sea_battle_3.0\obj\Debug\sea_battle_3.0.csproj.AssemblyReference.cache
+C:\Users\motor\OneDrive\Рабочий стол\учёба\c#\sea_battle_3.0\obj\Debug\sea_battle_3.0.csproj.CoreCompileInputs.cache
+C:\Users\motor\OneDrive\Рабочий стол\учёба\c#\sea_battle_3.0\obj\Debug\sea_battle_3.0.exe
+C:\Users\motor\OneDrive\Рабочий стол\учёба\c#\sea_battle_3.0\obj\Debug\sea_battle_3.0.pdb
