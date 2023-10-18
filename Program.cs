@@ -26,6 +26,26 @@ class GameField
         movesHistory = new List<string>();
         hitCount = 0;
     }
+    public void ShowShips()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                if (mas1[i, j] == 1)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.Write("[x]");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.Write("[ ]");
+                }
+            }
+            Console.WriteLine();
+        }
+    }
 
     public void Initialize()
     {
@@ -33,15 +53,23 @@ class GameField
 
         for (int i = 0; i < 10; i++)
         {
+            int count = 0;
+
             for (int j = 0; j < 10; j++)
             {
-                if ((i % 2) == 0)
-                {
-                    mas1[i, j] = rand.Next(0, 2);
-                }
+                if (count >= 4)
+                    mas1[i, j] = 0;
                 else
                 {
-                    mas1[i, j] = 0;
+                    if ((i % 2) == 0)
+                        mas1[i, j] = rand.Next(0, 2);
+                    else
+                        mas1[i, j] = 0;
+
+                    if (mas1[i, j] == 1)
+                        count++;
+                    else
+                        count = 0;
                 }
             }
         }
@@ -88,8 +116,10 @@ class GameField
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 movesHistory.Add($"ход {t + 1}: игрок ввел недопустимые координаты [{x + 1}, {y + 1}]");
-                Console.WriteLine("вы ввели недействительные координаты корабля. Попробуйте еще раз.");
+                Console.WriteLine("вы ввели недействительные координаты корабля. попробуйте еще раз.");
+                Console.ResetColor();
             }
 
             for (int i = 0; i < 10; i++)
@@ -102,7 +132,7 @@ class GameField
                     }
                     if (mas2[i, j] == 1)
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.Write("[x]");
                         Console.ResetColor();
                     }
@@ -113,7 +143,7 @@ class GameField
                 }
                 Console.WriteLine();
             }
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("количество попаданий: " + hitCount);
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -126,6 +156,11 @@ class GameField
         }
         Console.Read();
     }
+    public void StartGame()
+    {
+        ShowShips();
+        PlaceShips();
+    }
 }
 
 class Program
@@ -134,7 +169,6 @@ class Program
     {
         GameField gameField = new GameField();
         gameField.Initialize();
-        gameField.DrawField();
-        gameField.PlaceShips();
+        gameField.StartGame();
     }
 }
