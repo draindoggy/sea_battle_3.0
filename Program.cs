@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 class Ship
@@ -72,16 +72,24 @@ class GameField
             x--;
             Console.Clear();
 
-            if (mas1[x, y] == 1)
+            if (x >= 0 && x < 10 && y >= 0 && y < 10)
             {
-                mas2[x, y] = 1;
-                hitCount++;
-                movesHistory.Add($"ход {t + 1}: игрок попал в корабль по координатам [{x + 1}, {y + 1}]");
+                if (mas1[x, y] == 1)
+                {
+                    mas2[x, y] = 1;
+                    hitCount++;
+                    movesHistory.Add($"ход {t + 1}: игрок попал в корабль по координатам [{x + 1}, {y + 1}]");
+                }
+                else
+                {
+                    mas2[x, y] = 2;
+                    movesHistory.Add($"ход {t + 1}: игрок промахнулся по координатам [{x + 1}, {y + 1}]");
+                }
             }
             else
             {
-                mas2[x, y] = 2;
-                movesHistory.Add($"ход {t + 1}: игрок промахнулся по координатам [{x + 1}, {y + 1}]");
+                movesHistory.Add($"ход {t + 1}: игрок ввел недопустимые координаты [{x + 1}, {y + 1}]");
+                Console.WriteLine("вы ввели недействительные координаты корабля. Попробуйте еще раз.");
             }
 
             for (int i = 0; i < 10; i++)
